@@ -1,34 +1,27 @@
 # Installing Packages
 
-Let's first setup node and install needed packages:
+Let's first setup firebase and install needed packages:
 
 ```
-nvm use stable
-npm init
-npm install express mongoose multer
+firebase init
+select options for "Firestore", "Functions" and "Hosting"
+select the project you want it to be tied to
+leaving everything default until it asks about ESLint - type N
+Install dependencies with npm now? Y
+overwrite index.html N
+```
+After the firebase init is done, run 
+```
+npm install express
 ```
 
-We'll be using Express for the REST API. We'll use Mongoose to provide an object interface for the Mongo database. And we'll use multer to help us upload images.
+We'll be using an Express app deployed to Firebase for the REST API. 
 
-We should now be able to run the application. First, start Mongo. You can either start it manually:
-
+We should now be able to run the application. 
 ```
-mongod --config /usr/local/etc/mongod.conf
-```
-
-or perhaps you have it running already as a service on MacOS:
-
-```
-brew services list
-brew services start mongodb-community@4.0
+firebase serve
 ```
 
-[See the documentation for Windows](https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-windows/).
+This will start on port 5000, and you can browse to localhost:5000.
 
-Once Mongo is running, then you can run the node server:
-
-```
-node server.js
-```
-
-This will start on port 3000, and you can browse to localhost:3000.
+You should see the a styled home page with "Museum of Ordinary Objects" with a link to the Admin page below.  If you click on the link, it will take you to an almost blank Admin page.  
