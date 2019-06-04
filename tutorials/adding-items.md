@@ -48,9 +48,17 @@ The HTML page in `admin.html` uses `admin.js` for the Vue code. Let's edit `admi
   data: {
     title: "",
     selected:  "",
-    file: null,
-    addItem: null,
-  }
+    photos: [
+      {name: 'baseball', id: 1, path: 'baseball.jpg'},
+      {name: 'car', id: 2, path: 'car.jpg'},
+      {name: 'glasses', id: 3, path: 'glasses.jpg'},
+      {name: 'paintbrush', id: 4, path: 'paintbrush.jpg'},
+      {name: 'pen', id: 5, path: 'pen.jpg'},
+      {name: 'scissors', id: 6, path: 'scissors.jpg'},
+      {name: 'shovel', id: 7, path: 'shovel.jpg'},
+      {name: 'slinky', id: 8, path: 'slinky.jpg'},
+    ],
+  },
 ```
 
 and the following methods:
