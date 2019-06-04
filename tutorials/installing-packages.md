@@ -4,7 +4,7 @@ Let's first setup firebase and install needed packages:
 
 ```
 firebase init
-select options for "Firestore", "Functions", "Hosting",  and "Storage"
+select options for "Firestore", "Functions", "Hosting"
 select the project you want it to be tied to
 leaving everything default until it asks about ESLint - type N
 Install dependencies with npm now? Y
