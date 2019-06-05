@@ -123,7 +123,7 @@ This will use `item._id` to format the REST API endpoint we want to call. Rememb
 
 ## Back End
 
-Your job is to fill in the back end by creating a REST API endpoint for deleting items from the database. You can use `Item.deleteOne()` to delete an item from the `items` collection in Mongo. You need to pass this method an object containing the property you want to match, e.g. `{_id: 5}`. Don't hard-code a value, you can get it from the endpoint: `/api/items/:id`.
+Your job is to fill in the back end by creating a REST API endpoint for deleting items from the database. You need to pass this method an object containing the property you want to match, e.g. `{_id: 5}`. Don't hard-code a value, you can get it from the endpoint: `/api/items/:id`.
 
 ## Testing
 
