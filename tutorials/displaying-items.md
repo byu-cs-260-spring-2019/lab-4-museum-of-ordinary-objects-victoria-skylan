@@ -1,6 +1,6 @@
 # Displaying Items
 
-Now that we have an admin page to upload items for the museum, let's build the front page to display all the items in the museum.
+Now that we have an admin page to add items to the museum, let's build the front page to display all the items in the museum.
 
 ## Front End HTML
 
@@ -62,29 +62,28 @@ The `getItems` method uses the axios library to get the items from the server an
 
 ## Back End
 
-On the back end, we need to support this new REST API endpoint for getting items. Add this to `server.js`:
+On the back end, we need to support this new REST API endpoint for getting items. Add this to `index.js`:
 
 ```
 // Get a list of all of the items in the museum.
 app.get('/api/items', async (req, res) => {
-  try {
-    let items = await Item.find();
-    res.send(items);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(500);
-  }
+    try{
+        let querySnapshot = await itemsRef.get();
+        res.send(querySnapshot.docs.map(doc => doc.data()));
+    }catch(err){
+        res.sendStatus(500);
+    }
 });
 ```
 
-We use `Item.find()` to get the list of all of the items in the `items` collection, and then send them back to the browser. Notice that since we use `await` we need to use `async` for this method. We also use a `try/catch` block to catch any errors. If something goes wrong here, we assume it is a major error for our server, so we return a 500 error code.
+Notice that since we use `await` we need to use `async` for this method. We also use a `try/catch` block to catch any errors. If something goes wrong here, we assume it is a major error for our server, so we return a 500 error code.
 
 ## Testing
 
 Since we earlier added some items to the database and verified they were stored properly, you should be able to restart the server:
 
 ```
-node server.js
+firebase serve
 ```
 
-and then browse to localhost:3000 and see these items on the front page.
+and then browse to localhost:5000 and see these items on the front page.
