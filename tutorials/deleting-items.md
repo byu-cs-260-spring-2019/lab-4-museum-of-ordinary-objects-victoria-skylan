@@ -109,7 +109,7 @@ The final step here is to define the `deleteItem` method:
 ```
     async deleteItem(item) {
       try {
-        let response = axios.delete("/api/items/" + item._id);
+        let response = await axios.delete("/api/items/" + item.id);
         this.findItem = null;
         this.getItems();
         return true;
@@ -119,7 +119,7 @@ The final step here is to define the `deleteItem` method:
     },
 ```
 
-This will use `item._id` to format the REST API endpoint we want to call. Remember, the Mongo database automatically adds an `_id` field to every document in the database, and it contains a long hexadecimal value that uniquely identifies the document.
+This will use `item.id` to format the REST API endpoint we want to call. 
 
 ## Back End
 
