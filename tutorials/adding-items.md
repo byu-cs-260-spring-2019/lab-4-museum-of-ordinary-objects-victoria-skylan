@@ -130,7 +130,7 @@ Don't forget to modify the firebase.json files "rewrites" section to remove "des
 You will need to quit and restart the server:
 
 ```
-node server.js
+firebase serve
 ```
 
 Browse to localhost:5000 and use the admin page to add some items. Turn on the Developer Tools and use the Network tab to monitor what is happening when the items get added. Then use the firebase console to visualize your database and see the data that is inserted.
