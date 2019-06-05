@@ -18,7 +18,7 @@ You will need to modify `admin.html` to include an item description when editing
 
 You will then need to modify `admin.js` to include this field when calling the REST API to update an item in the database.
 
-Finally, you will need to modify the back end so that the scheme has this field and so that the API for updating an item will include this.
+Finally, you will need to modify the back end so that it has this field and so that the API for updating an item will include this.
 
 ## Displaying the description
 
