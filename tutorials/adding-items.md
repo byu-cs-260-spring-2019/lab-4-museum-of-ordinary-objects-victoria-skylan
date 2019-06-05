@@ -89,6 +89,17 @@ Once this is done, we get back a response that contains the item we added, so we
 
 On the back end, we're going to modify our index.js file to add a POST call to add a new item to the database.
 ```
+const functions = require('firebase-functions');
+const firebase = require('firebase-admin');
+const express = require('express');
+
+const firebaseApp = firebase.initializeApp(
+    functions.config().firebase
+);
+
+const app = express();
+
+
 // Create a new item in the museum: takes a title and a path to an image.
 var db = firebase.firestore();
 var itemsRef = db.collection('items');
@@ -109,7 +120,10 @@ app.post('/api/items', async (req, res) => {
         res.sendStatus(500);
       }
 });
+exports.app = functions.https.onRequest(app);
 ```
+
+Don't forget to modify the firebase.json files "rewrites" section to remove "destination" and replace with "function":"app"
 
 ## Testing
 
