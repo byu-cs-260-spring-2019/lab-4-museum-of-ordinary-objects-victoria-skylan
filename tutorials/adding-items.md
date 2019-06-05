@@ -23,7 +23,7 @@ To add items on the front end, edit `admin.html` so it contains this:
           <option>fix me</option>
           <option>fix me</option>
         </select>
-        <button @click="addItem">Add Item</button>
+        <button @click="addNewItem">Add Item</button>
       </div>
       <div class="upload" v-if="addItem">
         <h2>{{addItem.title}}</h2>
@@ -48,6 +48,7 @@ The HTML page in `admin.html` uses `admin.js` for the Vue code. Let's edit `admi
   data: {
     title: "",
     selected:  "",
+    addItem: null,
     photos: [
       {name: 'baseball', id: 1, path: 'baseball.jpg'},
       {name: 'car', id: 2, path: 'car.jpg'},
@@ -65,7 +66,7 @@ and the following methods:
 
 ```
   methods: {
-    async addItem(){
+    async addNewItem(){
       try {
         let result = await axios.post('/api/items', {
           title: this.title,
@@ -86,6 +87,7 @@ Once this is done, we get back a response that contains the item we added, so we
 
 ## Back End -- creating items
 
+On the back end, we're going to modify our index.js file to add a POST call to add a new item to the database.
 ```
 // Create a new item in the museum: takes a title and a path to an image.
 var db = firebase.firestore();
